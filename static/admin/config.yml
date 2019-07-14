@@ -20,7 +20,7 @@ collections:
     label: "News"
     folder: "content/news"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{title}}"
+    slug: { { title } }
     fields:
       - { name: "date", label: "Date", widget: "date" }
       - { name: "title", label: "Title" }
