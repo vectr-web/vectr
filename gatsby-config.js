@@ -7,6 +7,13 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/static/assets`,
+        name: "assets",
+      },
+    },
+    {
       resolve: "gatsby-source-filesystem",
       options: {
         path: `${__dirname}/content/blog`,
@@ -21,6 +28,13 @@ module.exports = {
       },
     },
     {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/content/team`,
+        name: "team",
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
@@ -30,7 +44,14 @@ module.exports = {
     {
       resolve: "gatsby-transformer-remark",
       options: {
-        plugins: ["gatsby-remark-copy-linked-files"],
+        plugins: [
+          `gatsby-remark-relative-images`,
+          {
+            resolve: `gatsby-remark-images`,
+            options: {},
+          },
+          "gatsby-remark-copy-linked-files",
+        ],
       },
     },
     `gatsby-transformer-sharp`,
