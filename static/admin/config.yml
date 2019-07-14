@@ -20,7 +20,7 @@ collections:
     label: "News"
     folder: "content/news"
     create: true
-    slug: { { title } }
+    slug: "{{year}}-{{month}}-{{day}}-{{title}}"
     fields:
       - { name: "date", label: "Date", widget: "date" }
       - { name: "title", label: "Title" }
@@ -37,7 +37,7 @@ collections:
     label: "Team"
     folder: "content/team"
     create: true
-    slug: { { name } }
+    slug: "{{name}}"
     fields:
       - { name: "type", label: "Type", widget: "hidden", default: "team" }
       - { name: "name", label: "Name", widget: "string" }
