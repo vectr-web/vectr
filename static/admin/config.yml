@@ -16,10 +16,28 @@ collections:
       - { name: "title", label: "Title" }
       - { name: "body", label: "Body", widget: "markdown" }
 
+  - name: "news"
+    label: "News"
+    folder: "content/news"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{title}}"
+    fields:
+      - { name: "date", label: "Date", widget: "date" }
+      - { name: "title", label: "Title" }
+      - { name: "feature_image", label: "Feature Image", widget: "image" }
+      - {
+          name: "category",
+          label: "Category",
+          widget: "select",
+          options: ["Category 1", "Category 2", "Category 3"],
+        }
+      - { name: "body", label: "Body", widget: "markdown" }
+
   - name: "team"
     label: "Team"
     folder: "content/team"
     create: true
+    slug: { { name } }
     fields:
       - { name: "type", label: "Type", widget: "hidden", default: "team" }
       - { name: "name", label: "Name", widget: "string" }
